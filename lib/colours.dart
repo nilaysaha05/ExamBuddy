@@ -1,0 +1,10 @@
+import 'package:flutter/material.dart';
+const white = Colors.white;
+const offWhite = Color(0xFFdfe6fa);
+const sky = Color(0xFFb8c6fd);
+const blue = Color(0xFF1727ac);
+const purple = Color(0xFFaab2e4);
+const black = Color(0xFF1e1e23);
+const red = Color(0xFFf11e24);
+const indigo = Color(0xFF4054be);
+const sky1 = Color(0xFF78a4d8);

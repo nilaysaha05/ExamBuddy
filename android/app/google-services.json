@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "540090279204",
+    "project_id": "mme-notes-app",
+    "storage_bucket": "mme-notes-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540090279204:android:f8771256bc34e57ed03fb1",
+        "android_client_info": {
+          "package_name": "com.nilaysaha.mme_notes_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540090279204-le1en5faj7773m93tbtvp62ppr5aqpmf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWClwV1thZwTD0WwQNOfo7Au7sc_bDiLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540090279204-le1en5faj7773m93tbtvp62ppr5aqpmf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
