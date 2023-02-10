@@ -92,7 +92,7 @@ class HomePage extends StatelessWidget {
             height: 18,
           ),
           const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 70.0),
+            padding: EdgeInsets.symmetric(horizontal: 30.0),
             child: Center(
               child: Text(
                 "This app is only for back benchers toppers are requested to uninstall the app.... ",

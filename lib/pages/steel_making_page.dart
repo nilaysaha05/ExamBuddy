@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/colours.dart';
 import 'package:mme_notes_app/pages/class_notes_page.dart';
+import 'package:mme_notes_app/pages/pyq_page.dart';
 import 'package:mme_notes_app/widgets/subject_page_tile.dart';
 
 class SteelMaking extends StatelessWidget {
@@ -54,7 +55,7 @@ class SteelMaking extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const ClassNotes(),
+                  builder: (context) => const PyqPage(),
                 ),
               );
 

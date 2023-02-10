@@ -21,7 +21,7 @@ class SemesterPage extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Container(
             height: 140,
             decoration: BoxDecoration(
@@ -29,14 +29,14 @@ class SemesterPage extends StatelessWidget {
               color: color,
             ),
             child: Padding(
-              padding: const EdgeInsets.all(40.0),
+              padding: const EdgeInsets.all(30.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children:  [
                   Text(
                     semester,
                     style: const TextStyle(
-                      fontSize: 22.0,
+                      fontSize: 21.0,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFFFCFEFF),
                     ),

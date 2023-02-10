@@ -36,7 +36,7 @@ class SubjectPage extends StatelessWidget {
                   Text(
                     subjectName,
                     style: const TextStyle(
-                      fontSize: 22.0,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFFFCFEFF),
                     ),
