@@ -1,9 +1,8 @@
-import 'dart:io';
-import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:mme_notes_app/colours.dart';
+import 'package:mme_notes_app/pages/file_upload_page.dart';
+import 'package:mme_notes_app/widgets/subject_page_tile.dart';
 
 class PyqPage extends StatefulWidget {
   const PyqPage({Key? key}) : super(key: key);
@@ -13,55 +12,71 @@ class PyqPage extends StatefulWidget {
 }
 
 class _PyqPageState extends State<PyqPage> {
+  final CollectionReference _ref =
+      FirebaseFirestore.instance.collection('Steel_Pyq');
+  late Stream<QuerySnapshot> _stream;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    _stream = _ref.snapshots();
+  }
+
   @override
   Widget build(BuildContext context) {
-    String url = "";
-    int? number;
-    uploadPdftoFirebase() async {
-      number = Random().nextInt(10);
-      //pick file
-      FilePickerResult? result = await FilePicker.platform.pickFiles();
-      File pick = File(result!.files.single.path.toString());
-      var file = pick.readAsBytesSync();
-      String name = "Steel Making PYQ"+DateTime.now().toString();
-
-      //upload file
-      var pdfFile = FirebaseStorage.instance.ref(name).child('/.pdf');
-      UploadTask task = pdfFile.putData(file);
-      TaskSnapshot snapshot = await task;
-      url = await snapshot.ref.getDownloadURL();
-      //upload url to cloud fire_store
-      await FirebaseFirestore.instance.collection('file').doc().set({
-        'fileUrl': url,
-        'num': "Pyq_SteelMaking" + number.toString(),
-      });
-    }
-
     return Scaffold(
-      body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection("file").snapshots(),
-        builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (snapshot.hasData) {
+      backgroundColor: white,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        elevation: 0.0,
+        backgroundColor: white,
+        toolbarHeight: 30.0,
+      ),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: _stream,
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasError) {
+            return Center(child: Text(snapshot.error.toString()));
+          }
+          if (snapshot.connectionState == ConnectionState.active) {
+            QuerySnapshot querySnapshot = snapshot.data;
+            List<QueryDocumentSnapshot> documents = querySnapshot.docs;
+
+            //Convert the documents to Maps
+            List<Map> items = documents
+                .map((e) => {
+                      'id': e.id,
+                      'note': e['note'],
+                      'date': e['date'],
+                    })
+                .toList();
+
             return ListView.builder(
-                itemCount: snapshot.data!.docs.length,
-                itemBuilder: (context, i) {
-                  QueryDocumentSnapshot x = snapshot.data!.docs[i];
-                  return InkWell(
-                    onTap: (){},
-                    child: Container(
-                      margin: const EdgeInsets.all(10),
-                      child: Text(x["num"]),
-                    ),
-                  );
+                itemCount: items.length,
+                itemBuilder: (BuildContext context, int index) {
+                  //Get the item at this index
+                  Map thisItem = items[index];
+                  //REturn the widget for the list items
+                  return SubjectPage(
+                      subjectName: '${thisItem['note']}',
+                      profName: '${thisItem['date']}',
+                      color: red,
+                      onTap: () {});
                 });
           }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center(child: CircularProgressIndicator());
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: uploadPdftoFirebase,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const UploadPage(),
+            ),
+          );
+        },
         child: const Icon(Icons.add_rounded),
       ),
     );
