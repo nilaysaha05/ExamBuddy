@@ -2,7 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/colours.dart';
 import 'package:mme_notes_app/pages/file_upload_page.dart';
+import 'package:mme_notes_app/pages/view_page.dart';
 import 'package:mme_notes_app/widgets/subject_page_tile.dart';
+
 
 class PyqPage extends StatefulWidget {
   const PyqPage({Key? key}) : super(key: key);
@@ -29,10 +31,29 @@ class _PyqPageState extends State<PyqPage> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        leading: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Container(
+            height: 50,
+            width: 45,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: offWhite,
+            ),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new_rounded,
+                size: 25,
+                color: blue,
+              ),
+            ),
+          ),
+        ),
         elevation: 0.0,
         backgroundColor: white,
-        toolbarHeight: 30.0,
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: _stream,
@@ -50,6 +71,7 @@ class _PyqPageState extends State<PyqPage> {
                       'id': e.id,
                       'note': e['note'],
                       'date': e['date'],
+                      'pdf' : e['pdf'],
                     })
                 .toList();
 
@@ -63,7 +85,13 @@ class _PyqPageState extends State<PyqPage> {
                       subjectName: '${thisItem['note']}',
                       profName: '${thisItem['date']}',
                       color: red,
-                      onTap: () {});
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>  ViewPage(thisItem['id']),
+                          ),
+                        );
+                      });
                 });
           }
           return const Center(child: CircularProgressIndicator());
@@ -82,3 +110,5 @@ class _PyqPageState extends State<PyqPage> {
     );
   }
 }
+
+

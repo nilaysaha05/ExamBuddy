@@ -36,7 +36,7 @@ dependencies:
   cloud_firestore: ^4.3.1
   firebase_storage: ^11.0.10
   file_picker: ^5.2.5
-  syncfusion_flutter_pdf: ^20.4.49
+  syncfusion_flutter_pdfviewer: ^20.3.61-beta
   firebase_database: ^10.0.10
 
 

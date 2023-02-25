@@ -14,36 +14,35 @@ class SixthSemPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         elevation: 0.0,
         backgroundColor: white,
-        toolbarHeight: 5.0,
+        leading: AppBar(
+          leading: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Container(
+              height: 50,
+              width: 45,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: offWhite,
+              ),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  size: 25,
+                  color: blue,
+                ),
+              ),
+            ),
+          ),
+          elevation: 0.0,
+          backgroundColor: white,
+        ),
+
       ),
       body: ListView(
         children: [
-           Row(
-             children: [
-               Padding(
-                 padding:
-                 const EdgeInsets.only(left: 10.0, top: 8.0, bottom: 5.0),
-                 child: Container(
-                   height: 50,
-                   width: 45,
-                   decoration: BoxDecoration(
-                     borderRadius: BorderRadius.circular(15),
-                     color: offWhite,
-                   ),
-                   child: IconButton(
-                     onPressed: (){
-                       Navigator.of(context).pop();
-                     },
-                     icon: const Icon(
-                       Icons.arrow_back_ios_new_rounded,
-                       size: 25,
-                       color: blue,
-                     ),
-                   ),
-                 ),
-               ),
-             ],
-           ),
           const Center(
             child: Text(
               "Sixth Semester",
