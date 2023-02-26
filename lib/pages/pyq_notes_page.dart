@@ -6,25 +6,26 @@ import 'package:mme_notes_app/pages/view_page.dart';
 import 'package:mme_notes_app/widgets/subject_page_tile.dart';
 
 
-class PyqPage extends StatefulWidget {
-  const PyqPage({Key? key}) : super(key: key);
+class PyqAndClassNote extends StatefulWidget {
+   PyqAndClassNote(this.path,this.pathStore,{Key? key}) : super(key: key)
+  {
+    final CollectionReference ref =
+    FirebaseFirestore.instance.collection(path);
+    _stream = ref.snapshots();
 
-  @override
-  State<PyqPage> createState() => _PyqPageState();
-}
+  }
 
-class _PyqPageState extends State<PyqPage> {
-  final CollectionReference _ref =
-      FirebaseFirestore.instance.collection('Steel_Pyq');
+  late String path;
+   late String pathStore;
   late Stream<QuerySnapshot> _stream;
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
 
-    _stream = _ref.snapshots();
-  }
+  @override
+  State<PyqAndClassNote> createState() => _PyqAndClassNoteState();
+}
+
+class _PyqAndClassNoteState extends State<PyqAndClassNote> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,7 @@ class _PyqPageState extends State<PyqPage> {
         backgroundColor: white,
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: _stream,
+        stream: widget._stream,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasError) {
             return Center(child: Text(snapshot.error.toString()));
@@ -80,7 +81,7 @@ class _PyqPageState extends State<PyqPage> {
                 itemBuilder: (BuildContext context, int index) {
                   //Get the item at this index
                   Map thisItem = items[index];
-                  //REturn the widget for the list items
+                  //Return the widget for the list items
                   return SubjectPage(
                       subjectName: '${thisItem['note']}',
                       profName: '${thisItem['date']}',
@@ -88,7 +89,7 @@ class _PyqPageState extends State<PyqPage> {
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) =>  ViewPage(thisItem['id']),
+                            builder: (context) =>  ViewPage(thisItem['id'],widget.path,thisItem['pdf']),
                           ),
                         );
                       });
@@ -98,10 +99,11 @@ class _PyqPageState extends State<PyqPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: blue,
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => const UploadPage(),
+              builder: (context) =>  UploadPage(widget.path,widget.pathStore),
             ),
           );
         },

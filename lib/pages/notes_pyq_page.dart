@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/colours.dart';
-import 'package:mme_notes_app/pages/class_notes_page.dart';
-import 'package:mme_notes_app/pages/pyq_page.dart';
+import 'package:mme_notes_app/pages/pyq_notes_page.dart';
 import 'package:mme_notes_app/widgets/subject_page_tile.dart';
 
-class SteelMaking extends StatelessWidget {
-  const SteelMaking({Key? key}) : super(key: key);
+class NoteAndPyqPage extends StatelessWidget {
+ const NoteAndPyqPage(
+      this.pathNote, this.pathPyq, this.subjectName, this.labGr1, this.labGr2,
+      {Key? key})
+      : super(key: key);
+
+  final String pathNote;
+  final String pathPyq;
+  final String subjectName;
+  final String labGr1;
+  final String labGr2;
 
   @override
   Widget build(BuildContext context) {
@@ -38,36 +46,39 @@ class SteelMaking extends StatelessWidget {
       backgroundColor: white,
       body: ListView(
         children: [
-          const Center(
-            child: Text(
-              "Steel Making",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          Center(
+            child: SizedBox(
+              child: Text(
+                subjectName,
+                overflow: TextOverflow.ellipsis,
+                style:
+                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
             ),
           ),
           const SizedBox(
             height: 40.0,
           ),
           SubjectPage(
-            subjectName: 'Previous year Questions',
+            subjectName: labGr1,
             profName: '',
             color: indigo,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const PyqPage(),
+                  builder: (context) => PyqAndClassNote(pathPyq,'Notes_Pyq'),
                 ),
               );
-
             },
           ),
           SubjectPage(
-            subjectName: 'Class Notes',
+            subjectName: labGr2,
             profName: '',
             color: red,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const ClassNotes(),
+                  builder: (context) => PyqAndClassNote(pathNote,'Notes_Pyq'),
                 ),
               );
             },

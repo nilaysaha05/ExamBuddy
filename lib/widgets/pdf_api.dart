@@ -3,7 +3,7 @@ import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 
 class TestPage extends StatefulWidget {
-   TestPage({Key? key}) : super(key: key);
+ const  TestPage({Key? key}) : super(key: key);
 
   @override
   State<TestPage> createState() => _TestPageState();

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/colours.dart';
-import 'package:mme_notes_app/pages/eighth_sem_page.dart';
-import 'package:mme_notes_app/pages/fifth_sem_page.dart';
-import 'package:mme_notes_app/pages/first_sem_page.dart';
-import 'package:mme_notes_app/pages/fourth_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/eighth_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/fifth_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/first_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/fourth_sem_page.dart';
 import 'package:mme_notes_app/pages/notification_page.dart';
 import 'package:mme_notes_app/pages/profile_page.dart';
-import 'package:mme_notes_app/pages/second_sem_page.dart';
-import 'package:mme_notes_app/pages/seventh_sem_page.dart';
-import 'package:mme_notes_app/pages/sixth_sem_page.dart';
-import 'package:mme_notes_app/pages/third_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/second_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/seventh_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/sixth_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/third_sem_page.dart';
 import 'package:mme_notes_app/widgets/semester_page_tile.dart';
 
 class HomePage extends StatelessWidget {

@@ -1,19 +1,22 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/colours.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
-
-
-
+import 'package:http/http.dart' as http;
+import 'package:share_plus/share_plus.dart';
 
 class ViewPage extends StatefulWidget {
-  ViewPage(this.itemId, {Key? key}) : super(key: key) {
-    _reference = FirebaseFirestore.instance.collection("Steel_Pyq").doc(itemId);
+  ViewPage(this.itemId, this.path, this.url, {Key? key}) : super(key: key) {
+    _reference = FirebaseFirestore.instance.collection(path).doc(itemId);
     _futureData = _reference.get();
   }
 
-  String itemId;
+  final String itemId;
+  final String path;
+  final String url;
   late DocumentReference _reference;
   late Future<DocumentSnapshot> _futureData;
 
@@ -29,7 +32,6 @@ class _ViewPageState extends State<ViewPage> {
     super.initState();
     _pdfViewerController = PdfViewerController();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +60,18 @@ class _ViewPageState extends State<ViewPage> {
         ),
         elevation: 0.0,
         backgroundColor: white,
-        actions: [IconButton(onPressed: (){}, icon: const Icon(Icons.share_rounded, color: blue,))],
+        actions: [
+          IconButton(
+            onPressed: () async {
+               await sharePdf(widget.url);
+
+            },
+            icon: const Icon(
+              Icons.share_rounded,
+              color: blue,
+            ),
+          ),
+        ],
       ),
       backgroundColor: white,
       body: FutureBuilder<DocumentSnapshot>(
@@ -72,12 +85,14 @@ class _ViewPageState extends State<ViewPage> {
             );
           }
           if (snapshot.hasData) {
-            DocumentSnapshot documentSnapshot=snapshot.data!;
+            DocumentSnapshot documentSnapshot = snapshot.data!;
             Map data = documentSnapshot.data() as Map;
+
+            String url = '${data['pdf']}';
 
             return SafeArea(
               child: SfPdfViewer.network(
-                '${data['pdf']}',
+                url,
                 controller: _pdfViewerController,
               ),
             );
@@ -89,5 +104,16 @@ class _ViewPageState extends State<ViewPage> {
       ),
     );
   }
-}
 
+  Future sharePdf(String pdfUrl) async {
+    final uri = Uri.parse(pdfUrl);
+    final res = await http.get(uri);
+    final bytes = res.bodyBytes;
+
+    final tem = await getTemporaryDirectory();
+    final path = '${tem.path}/notes.pdf';
+   await File(path).writeAsBytes(bytes);
+
+    await Share.shareFiles([path]);
+  }
+}

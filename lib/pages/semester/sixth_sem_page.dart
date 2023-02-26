@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/colours.dart';
-import 'package:mme_notes_app/pages/steel_making_page.dart';
+import 'package:mme_notes_app/pages/notes_pyq_page.dart';
 import 'package:mme_notes_app/widgets/subject_page_tile.dart';
 
 class SixthSemPage extends StatelessWidget {
@@ -39,7 +39,6 @@ class SixthSemPage extends StatelessWidget {
           elevation: 0.0,
           backgroundColor: white,
         ),
-
       ),
       body: ListView(
         children: [
@@ -73,7 +72,13 @@ class SixthSemPage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const SteelMaking(),
+                  builder: (context) => NoteAndPyqPage(
+                    'Steel_Notes',
+                    'Steel_Pyq',
+                    'Steel Making',
+                    'Previous year Questions',
+                    'Class Notes',
+                  ),
                 ),
               );
             },
@@ -82,25 +87,71 @@ class SixthSemPage extends StatelessWidget {
             subjectName: "Foundry Metallurgy",
             profName: "Prof. S. Hembram",
             color: black,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => NoteAndPyqPage(
+                    'Foundry_Notes',
+                    'Foundry_Pyq',
+                    'Foundry Metallurgy',
+                    'Previous year Questions',
+                    'Class Notes',
+                  ),
+                ),
+              );
+            },
           ),
           SubjectPage(
             subjectName: "Extraction of Nonferrous Metals",
             profName: "Prof. S. paul",
             color: red,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => NoteAndPyqPage(
+                      'Nonferrous_Notes',
+                      'Nonferrous_Pyq',
+                      'Nonferrous Metals',
+                      'Previous year Questions',
+                      'Class Notes',
+                    ),),
+              );
+            },
           ),
           SubjectPage(
             subjectName: "Solid-state Phase Transformation Process",
             profName: "Prof. A. Kundu",
             color: blue,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => NoteAndPyqPage(
+                      'Solid-state_Notes',
+                      'Solid-state_Pyq',
+                      'Solid-state Phase',
+                      'Previous year Questions',
+                      'Class Notes',
+                    ),),
+              );
+            },
           ),
           SubjectPage(
             subjectName: "Open Elective",
             profName: "",
             color: black,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) =>
+                        NoteAndPyqPage(
+                          'Oe_Notes',
+                          'Oe_Pyq',
+                          'Open Elective',
+                          'Previous year Questions',
+                          'Class Notes',
+                        ),),
+              );
+            },
           ),
           const SizedBox(
             height: 20.0,
@@ -123,13 +174,35 @@ class SixthSemPage extends StatelessWidget {
             subjectName: "Foundry Metallurgy",
             profName: "Prof. R. Dey & Prof. S. Hembram",
             color: red,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) =>NoteAndPyqPage(
+                      'Foundry_Lab_A1',
+                      'Foundry_Lab_A2',
+                      'Foundry Metallurgy Lab',
+                      'Group A1',
+                      'Group A2',
+                    ),),
+              );
+            },
           ),
           SubjectPage(
             subjectName: "Heat Treatment Practice & MicroStructure Analysis",
             profName: "Prof. A. Kundu & Prof. P. C. Chkraborti",
             color: indigo,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => NoteAndPyqPage(
+                      'Heat_Lab_A1',
+                      'Heat_Lab_A2',
+                      'Heat Treatment Lab',
+                      'Group A1',
+                      'Group A2',
+                    ),),
+              );
+            },
           ),
           const SizedBox(
             height: 20.0,
@@ -152,7 +225,18 @@ class SixthSemPage extends StatelessWidget {
             subjectName: "Surface Engineering & Coating Technology",
             profName: "Prof. S. Hembram",
             color: black,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => NoteAndPyqPage(
+                    'Surface_Notes',
+                    'Surface_Pyq',
+                    'Surface Engineering',
+                    'Previous year Questions',
+                    'Class Notes',
+                  ),),
+              );
+            },
           ),
         ],
       ),

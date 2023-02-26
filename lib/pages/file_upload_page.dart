@@ -6,7 +6,17 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 
 class UploadPage extends StatefulWidget {
-  const UploadPage({Key? key}) : super(key: key);
+   UploadPage(this.pathData,this.pathStore,{Key? key}) : super(key: key){
+
+     final CollectionReference _reference =
+     FirebaseFirestore.instance.collection(pathData);
+     _ref = _reference.doc(DateTime.now().microsecondsSinceEpoch.toString());
+   }
+
+  String pathData;
+  String pathStore;
+  late DocumentReference _ref;
+
 
   @override
   State<UploadPage> createState() => _UploadPageState();
@@ -17,12 +27,11 @@ class _UploadPageState extends State<UploadPage> {
   File? file;
   final noteEditingController = TextEditingController();
   final dateEditingController = TextEditingController();
-  final String id = DateTime.now().microsecondsSinceEpoch.toString();
   String pdfUrl = '';
   String _fileText = 'No file Selected';
 
-  final CollectionReference _reference =
-      FirebaseFirestore.instance.collection('Steel_Pyq');
+
+
 
   void _pickFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
@@ -43,7 +52,7 @@ class _UploadPageState extends State<UploadPage> {
 
   Future _uploadFile() async {
     Reference referenceRoot = FirebaseStorage.instance.ref();
-    Reference referenceDirFile = referenceRoot.child('pyq_steel').child(id);
+    Reference referenceDirFile = referenceRoot.child(widget.pathStore).child(DateTime.now().microsecondsSinceEpoch.toString());
     try {
       await referenceDirFile.putFile(file!);
       pdfUrl = await referenceDirFile.getDownloadURL();
@@ -111,7 +120,7 @@ class _UploadPageState extends State<UploadPage> {
               Container(
                   padding: const EdgeInsets.all(8),
                   decoration:
-                      BoxDecoration(border: Border.all(color: Colors.black26)),
+                  BoxDecoration(border: Border.all(color: Colors.black26)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -131,9 +140,10 @@ class _UploadPageState extends State<UploadPage> {
               const SizedBox(
                 height: 20.0,
               ),
-              Container(
+              SizedBox(
                 height: 50,
                 child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: blue),
                     onPressed: () async {
                       setState(() {
                         loading = true;
@@ -158,7 +168,7 @@ class _UploadPageState extends State<UploadPage> {
 
                       if (noteEditingController.text != "" &&
                           dateEditingController.text != "") {
-                        _reference.doc(id).set(dataToSend);
+                        widget._ref.set(dataToSend);
                         Navigator.of(context).pop();
                         setState(() {
                           loading = false;
