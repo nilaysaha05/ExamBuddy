@@ -89,7 +89,7 @@ class _PyqAndClassNoteState extends State<PyqAndClassNote> {
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) =>  ViewPage(thisItem['id'],widget.path,thisItem['pdf']),
+                            builder: (context) =>  ViewPage(thisItem['id'],widget.path,thisItem['pdf'],thisItem['note']),
                           ),
                         );
                       });

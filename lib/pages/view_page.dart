@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/colours.dart';
 import 'package:path_provider/path_provider.dart';
@@ -9,16 +8,11 @@ import 'package:http/http.dart' as http;
 import 'package:share_plus/share_plus.dart';
 
 class ViewPage extends StatefulWidget {
-  ViewPage(this.itemId, this.path, this.url, {Key? key}) : super(key: key) {
-    _reference = FirebaseFirestore.instance.collection(path).doc(itemId);
-    _futureData = _reference.get();
-  }
-
+  ViewPage(this.itemId, this.path, this.url, this.note, {Key? key}) : super(key: key) ;
   final String itemId;
   final String path;
   final String url;
-  late DocumentReference _reference;
-  late Future<DocumentSnapshot> _futureData;
+  final String note;
 
   @override
   State<ViewPage> createState() => _ViewPageState();
@@ -74,33 +68,11 @@ class _ViewPageState extends State<ViewPage> {
         ],
       ),
       backgroundColor: white,
-      body: FutureBuilder<DocumentSnapshot>(
-        future: widget._futureData,
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return Center(
-              child: Text(
-                '${snapshot.hasError}',
-              ),
-            );
-          }
-          if (snapshot.hasData) {
-            DocumentSnapshot documentSnapshot = snapshot.data!;
-            Map data = documentSnapshot.data() as Map;
-
-            String url = '${data['pdf']}';
-
-            return SafeArea(
-              child: SfPdfViewer.network(
-                url,
-                controller: _pdfViewerController,
-              ),
-            );
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
+      body: SafeArea(
+        child: SfPdfViewer.network(
+          widget.url,
+          controller: _pdfViewerController,
+        ),
       ),
     );
   }
@@ -111,7 +83,7 @@ class _ViewPageState extends State<ViewPage> {
     final bytes = res.bodyBytes;
 
     final tem = await getTemporaryDirectory();
-    final path = '${tem.path}/notes.pdf';
+    final path = '${tem.path}/'+widget.note+'.pdf';
    await File(path).writeAsBytes(bytes);
 
     await Share.shareFiles([path]);

@@ -44,11 +44,14 @@ class SubjectPage extends StatelessWidget {
                   const SizedBox(
                     height: 10.0,
                   ),
-                  Text(
-                    profName,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFFCFEFF),
+                  Expanded(
+                    child: Text(
+                      profName,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFFCFEFF),
+                      ),
                     ),
                   ),
                 ],

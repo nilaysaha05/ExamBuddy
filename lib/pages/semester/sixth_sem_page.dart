@@ -72,7 +72,7 @@ class SixthSemPage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => NoteAndPyqPage(
+                  builder: (context) => const NoteAndPyqPage(
                     'Steel_Notes',
                     'Steel_Pyq',
                     'Steel Making',
@@ -90,7 +90,7 @@ class SixthSemPage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => NoteAndPyqPage(
+                  builder: (context) => const NoteAndPyqPage(
                     'Foundry_Notes',
                     'Foundry_Pyq',
                     'Foundry Metallurgy',
@@ -108,7 +108,7 @@ class SixthSemPage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (context) => NoteAndPyqPage(
+                    builder: (context) => const NoteAndPyqPage(
                       'Nonferrous_Notes',
                       'Nonferrous_Pyq',
                       'Nonferrous Metals',
@@ -125,7 +125,7 @@ class SixthSemPage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (context) => NoteAndPyqPage(
+                    builder: (context) => const NoteAndPyqPage(
                       'Solid-state_Notes',
                       'Solid-state_Pyq',
                       'Solid-state Phase',
@@ -142,8 +142,7 @@ class SixthSemPage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (context) =>
-                        NoteAndPyqPage(
+                    builder: (context) => const NoteAndPyqPage(
                           'Oe_Notes',
                           'Oe_Pyq',
                           'Open Elective',
@@ -177,7 +176,7 @@ class SixthSemPage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (context) =>NoteAndPyqPage(
+                    builder: (context) =>const NoteAndPyqPage(
                       'Foundry_Lab_A1',
                       'Foundry_Lab_A2',
                       'Foundry Metallurgy Lab',
@@ -189,12 +188,12 @@ class SixthSemPage extends StatelessWidget {
           ),
           SubjectPage(
             subjectName: "Heat Treatment Practice & MicroStructure Analysis",
-            profName: "Prof. A. Kundu & Prof. P. C. Chkraborti",
+            profName: "Prof. A. Kundu & Prof. P. C. Chakraborti",
             color: indigo,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (context) => NoteAndPyqPage(
+                    builder: (context) => const NoteAndPyqPage(
                       'Heat_Lab_A1',
                       'Heat_Lab_A2',
                       'Heat Treatment Lab',
@@ -228,7 +227,7 @@ class SixthSemPage extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => NoteAndPyqPage(
+                  builder: (context) => const NoteAndPyqPage(
                     'Surface_Notes',
                     'Surface_Pyq',
                     'Surface Engineering',
