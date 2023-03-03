@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/colours.dart';
 import 'package:mme_notes_app/pages/file_upload_page.dart';
@@ -25,6 +26,21 @@ class PyqAndClassNote extends StatefulWidget {
 }
 
 class _PyqAndClassNoteState extends State<PyqAndClassNote> {
+  bool _admin = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
+  void getAdminData() async
+  {
+    DocumentSnapshot snap = await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).get();
+    setState(() {
+      _admin = (snap.data() as Map<String,dynamic>)['admin'];
+    });
+  }
 
 
   @override

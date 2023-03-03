@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/colours.dart';
 import 'package:mme_notes_app/pages/semester/eighth_sem_page.dart';
@@ -12,9 +14,27 @@ import 'package:mme_notes_app/pages/semester/sixth_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/third_sem_page.dart';
 import 'package:mme_notes_app/widgets/semester_page_tile.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  String username='';
+  @override
+  void initState() {
+    super.initState();
+    getUserName();
+  }
+  void getUserName() async
+  {
+   DocumentSnapshot snap = await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).get();
+   setState(() {
+     username = (snap.data() as Map<String,dynamic>)['username'];
+   });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,10 +102,10 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          const Center(
+           Center(
             child: Text(
-              "Hey Nilay,",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              "Hey $username,",
+              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
           const SizedBox(
@@ -170,7 +190,7 @@ class HomePage extends StatelessWidget {
           ),
           SemesterPage(
             semester: "Sixth Semester",
-            subject: "5 sub 2 lab",
+            subject: "5 sub 3 lab",
             color: red,
             onTap: () {
               Navigator.of(context).push(

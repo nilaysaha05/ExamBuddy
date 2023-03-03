@@ -14,7 +14,6 @@ class SixthSemPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         elevation: 0.0,
         backgroundColor: white,
-        leading: AppBar(
           leading: Padding(
             padding: const EdgeInsets.all(5.0),
             child: Container(
@@ -36,9 +35,7 @@ class SixthSemPage extends StatelessWidget {
               ),
             ),
           ),
-          elevation: 0.0,
-          backgroundColor: white,
-        ),
+
       ),
       body: ListView(
         children: [
@@ -203,6 +200,23 @@ class SixthSemPage extends StatelessWidget {
               );
             },
           ),
+          SubjectPage(
+            subjectName: "Computer Application in Metallurgy",
+            profName: "Prof. S. Paul & Prof. R. Dey",
+            color: black,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const NoteAndPyqPage(
+                    'Comp_Lab_A1',
+                    'Comp_Lab_A2',
+                    'Computer Lab',
+                    'Group A1',
+                    'Group A2',
+                  ),),
+              );
+            },
+          ),
           const SizedBox(
             height: 20.0,
           ),
@@ -223,7 +237,7 @@ class SixthSemPage extends StatelessWidget {
           SubjectPage(
             subjectName: "Surface Engineering & Coating Technology",
             profName: "Prof. S. Hembram",
-            color: black,
+            color: red,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(

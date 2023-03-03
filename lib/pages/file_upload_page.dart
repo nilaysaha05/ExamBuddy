@@ -25,13 +25,19 @@ class UploadPage extends StatefulWidget {
 class _UploadPageState extends State<UploadPage> {
   bool loading = false;
   File? file;
-  final noteEditingController = TextEditingController();
-  final dateEditingController = TextEditingController();
+  final _noteEditingController = TextEditingController();
+  final _dateEditingController = TextEditingController();
   String pdfUrl = '';
   String _fileText = 'No file Selected';
 
 
-
+@override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _noteEditingController.dispose();
+    _dateEditingController.dispose();
+  }
 
   void _pickFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
@@ -100,7 +106,7 @@ class _UploadPageState extends State<UploadPage> {
                 height: 30,
               ),
               TextFormField(
-                controller: noteEditingController,
+                controller: _noteEditingController,
                 maxLines: 1,
                 decoration: const InputDecoration(
                     hintText: "Note", border: OutlineInputBorder()),
@@ -109,7 +115,7 @@ class _UploadPageState extends State<UploadPage> {
                 height: 20.0,
               ),
               TextFormField(
-                controller: dateEditingController,
+                controller: _dateEditingController,
                 maxLines: 1,
                 decoration: const InputDecoration(
                     hintText: "dd-mm-yyyy", border: OutlineInputBorder()),
@@ -161,13 +167,13 @@ class _UploadPageState extends State<UploadPage> {
                       }
 
                       Map<String, String> dataToSend = {
-                        'note': noteEditingController.text.toString(),
-                        'date': dateEditingController.text.toString(),
+                        'note': _noteEditingController.text.toString(),
+                        'date': _dateEditingController.text.toString(),
                         'pdf': pdfUrl,
                       };
 
-                      if (noteEditingController.text != "" &&
-                          dateEditingController.text != "") {
+                      if (_noteEditingController.text != "" &&
+                          _dateEditingController.text != "") {
                         widget._ref.set(dataToSend);
                         Navigator.of(context).pop();
                         setState(() {
