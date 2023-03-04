@@ -26,12 +26,13 @@ class PyqAndClassNote extends StatefulWidget {
 }
 
 class _PyqAndClassNoteState extends State<PyqAndClassNote> {
-  bool _admin = false;
 
+bool _admin = false;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    getAdminData();
 
   }
   void getAdminData() async
@@ -114,7 +115,7 @@ class _PyqAndClassNoteState extends State<PyqAndClassNote> {
           return const Center(child: CircularProgressIndicator());
         },
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: _admin == false ? null : FloatingActionButton(
         backgroundColor: blue,
         onPressed: () {
           Navigator.of(context).push(
