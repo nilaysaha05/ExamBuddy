@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mme_notes_app/colours.dart';
+import 'package:mme_notes_app/utils/colours.dart';
 import 'package:mme_notes_app/pages/notes_pyq_page.dart';
 import 'package:mme_notes_app/widgets/subject_page_tile.dart';
 

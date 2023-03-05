@@ -1,11 +1,11 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
-import 'package:mme_notes_app/colours.dart';
-import 'package:mme_notes_app/pages/auth_methods.dart';
+import 'package:mme_notes_app/utils/colours.dart';
+import 'package:mme_notes_app/services/auth_methods.dart';
 import 'package:mme_notes_app/pages/home_page.dart';
 import 'package:mme_notes_app/pages/sign_in_page.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mme_notes_app/utils.dart';
+import 'package:mme_notes_app/utils/utils.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -37,7 +37,7 @@ class _SignUpPageState extends State<SignUpPage> {
     });
   }
 
-  Future signUpUser() async {
+  void signUpUser() async {
     setState(() {
       _isLoading = true;
     });
@@ -53,22 +53,21 @@ class _SignUpPageState extends State<SignUpPage> {
       _isLoading = false;
     });
 
-    if (res == "success") {
-      setState(() {
-        _isLoading = false;
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => const HomePage(),
-          ),
-        );
-      });
+    if (res == 'Success') {
       // navigate to the home screen
+      if (context.mounted) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
+      }
     } else {
       setState(() {
         _isLoading = false;
       });
       // show the error
-      showSnackBar(res, context);
+      if (context.mounted) {
+        showSnackBar(res, context);
+      }
     }
   }
 
@@ -85,43 +84,42 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0.0,
         backgroundColor: white,
+        toolbarHeight: 15,
       ),
-      resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0),
-          width: double.infinity,
-          child: Column(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: ListView(
             children: [
-              const SizedBox(
-                height: 20.0,
-              ),
-              Stack(
-                children: [
-                  _image != null
-                      ? CircleAvatar(
-                          radius: 64.0,
-                          backgroundImage: MemoryImage(_image!),
-                        )
-                      : const CircleAvatar(
-                          radius: 64.0,
-                          backgroundImage: NetworkImage(
-                              'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
-                        ),
-                  Positioned(
-                    bottom: -10,
-                    left: 80,
-                    child: IconButton(
-                      onPressed: selectImage,
-                      icon: const Icon(Icons.add_a_photo),
+              Center(
+                child: Stack(
+                  children: [
+                    _image != null
+                        ? CircleAvatar(
+                            radius: 64.0,
+                            backgroundImage: MemoryImage(_image!),
+                          )
+                        : const CircleAvatar(
+                            radius: 64.0,
+                            backgroundImage: NetworkImage(
+                                'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
+                          ),
+                    Positioned(
+                      bottom: -10,
+                      left: 80,
+                      child: IconButton(
+                        onPressed: selectImage,
+                        icon: const Icon(Icons.add_a_photo),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(
-                height: 60.0,
+                height: 45.0,
               ),
               TextFormField(
                 controller: _usernameController,
@@ -169,60 +167,39 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(
                 height: 24.0,
               ),
-              InkWell(
-                onTap: () async {
-                  await signUpUser();
-                },
-                child: Container(
-                  child: _isLoading
+              SizedBox(
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: blue),
+                  onPressed: signUpUser,
+                  child: _isLoading == true
                       ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : const Text(
-                          'Sign Up',
-                          style: TextStyle(color: white),
-                        ),
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  decoration: const ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(4),
-                      ),
-                    ),
-                    color: blue,
-                  ),
+                          child: CircularProgressIndicator(
+                          color: white,
+                        ))
+                      : const Text('Create account'),
                 ),
               ),
               const SizedBox(
-                height: 12.0,
+                height: 10.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    alignment: Alignment.center,
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: const Text(
-                      "Already have an account?",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                  const Text(
+                    "Already have an account?",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  GestureDetector(
-                    onTap: navigateToLogin,
-                    child: Container(
-                      child: const Text(
-                        " Sign in.",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: blue,
-                        ),
+                  TextButton(
+                    onPressed: navigateToLogin,
+                    child: const Text(
+                      'Sign In',
+                      style: TextStyle(
+                        color: blue,
+                        fontWeight: FontWeight.bold,
                       ),
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
                     ),
                   ),
                 ],

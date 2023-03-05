@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mme_notes_app/colours.dart';
+import 'package:mme_notes_app/utils/colours.dart';
 import 'package:mme_notes_app/pages/file_upload_page.dart';
 import 'package:mme_notes_app/pages/view_page.dart';
 import 'package:mme_notes_app/widgets/subject_page_tile.dart';
@@ -16,9 +16,9 @@ class PyqAndClassNote extends StatefulWidget {
 
   }
 
-  late String path;
-   late String pathStore;
-  late Stream<QuerySnapshot> _stream;
+  late final String path;
+   late final String pathStore;
+  late final Stream<QuerySnapshot> _stream;
 
 
   @override

@@ -1,22 +1,20 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:mme_notes_app/colours.dart';
+import 'package:mme_notes_app/utils/colours.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 
 class UploadPage extends StatefulWidget {
-   UploadPage(this.pathData,this.pathStore,{Key? key}) : super(key: key){
+  UploadPage(this.pathData, this.pathStore, {Key? key}) : super(key: key) {
+    final CollectionReference reference =
+        FirebaseFirestore.instance.collection(pathData);
+    _ref = reference.doc(DateTime.now().microsecondsSinceEpoch.toString());
+  }
 
-     final CollectionReference _reference =
-     FirebaseFirestore.instance.collection(pathData);
-     _ref = _reference.doc(DateTime.now().microsecondsSinceEpoch.toString());
-   }
-
-  String pathData;
-  String pathStore;
-  late DocumentReference _ref;
-
+  final String pathData;
+  final String pathStore;
+  late final DocumentReference _ref;
 
   @override
   State<UploadPage> createState() => _UploadPageState();
@@ -30,8 +28,7 @@ class _UploadPageState extends State<UploadPage> {
   String pdfUrl = '';
   String _fileText = 'No file Selected';
 
-
-@override
+  @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
@@ -58,7 +55,9 @@ class _UploadPageState extends State<UploadPage> {
 
   Future _uploadFile() async {
     Reference referenceRoot = FirebaseStorage.instance.ref();
-    Reference referenceDirFile = referenceRoot.child(widget.pathStore).child(DateTime.now().microsecondsSinceEpoch.toString());
+    Reference referenceDirFile = referenceRoot
+        .child(widget.pathStore)
+        .child(DateTime.now().microsecondsSinceEpoch.toString());
     try {
       await referenceDirFile.putFile(file!);
       pdfUrl = await referenceDirFile.getDownloadURL();
@@ -126,7 +125,7 @@ class _UploadPageState extends State<UploadPage> {
               Container(
                   padding: const EdgeInsets.all(8),
                   decoration:
-                  BoxDecoration(border: Border.all(color: Colors.black26)),
+                      BoxDecoration(border: Border.all(color: Colors.black26)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -158,8 +157,12 @@ class _UploadPageState extends State<UploadPage> {
                       await _uploadFile();
 
                       if (pdfUrl.isEmpty) {
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text('Please Upload a file..')));
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text('Please Upload a file..')));
+                        }
+
                         setState(() {
                           loading = false;
                         });
@@ -175,15 +178,19 @@ class _UploadPageState extends State<UploadPage> {
                       if (_noteEditingController.text != "" &&
                           _dateEditingController.text != "") {
                         widget._ref.set(dataToSend);
-                        Navigator.of(context).pop();
+                        if (context.mounted) {
+                          Navigator.of(context).pop();
+                        }
                         setState(() {
                           loading = false;
                         });
-
                       }
                     },
                     child: loading == true
-                        ? const Center(child: CircularProgressIndicator(color: white,))
+                        ? const Center(
+                            child: CircularProgressIndicator(
+                            color: white,
+                          ))
                         : const Text("Save")),
               ),
             ],

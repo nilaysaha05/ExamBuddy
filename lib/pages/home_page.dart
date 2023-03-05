@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mme_notes_app/colours.dart';
+import 'package:mme_notes_app/utils/colours.dart';
 import 'package:mme_notes_app/pages/semester/eighth_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/fifth_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/first_sem_page.dart';

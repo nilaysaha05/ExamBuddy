@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mme_notes_app/storage_methods.dart';
+import 'package:mme_notes_app/services/storage_methods.dart';
 import 'package:mme_notes_app/user_model.dart' as model;
 
 class AuthMethods {
@@ -19,10 +19,10 @@ class AuthMethods {
       if (email.isNotEmpty ||
           password.isNotEmpty ||
           username.isNotEmpty ||
-          lastname.isEmpty) {
+          lastname.isNotEmpty ) {
         UserCredential cred = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
-        print(cred.user!.uid);
+        //print(cred.user!.uid);
 
         String photoUrl =
             await StorageMethods().uploadImageToStorage('ProfilePics', file);
