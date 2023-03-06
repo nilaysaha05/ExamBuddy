@@ -20,6 +20,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _lastnameController = TextEditingController();
+  final TextEditingController _graduationYearController = TextEditingController();
   Uint8List? _image;
   bool _isLoading = false;
   @override
@@ -29,6 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
     _passwordController.dispose();
     _usernameController.dispose();
     _lastnameController.dispose();
+    _graduationYearController.dispose();
   }
 
   void selectImage() async {
@@ -142,8 +144,10 @@ class _SignUpPageState extends State<SignUpPage> {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 15,),
+                  const Text("without photo you won't be able to create account.." ),
                   const SizedBox(
-                    height: 45.0,
+                    height: 30.0,
                   ),
                   TextFormField(
                     controller: _usernameController,
@@ -177,6 +181,18 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 20.0,
                   ),
                   TextFormField(
+                    controller: _graduationYearController,
+                    maxLines: 1,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                      hintText: "year of graduation",
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  TextFormField(
                     controller: _passwordController,
                     maxLines: 1,
                     obscureText: true,
@@ -184,7 +200,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     autocorrect: false,
                     keyboardType: TextInputType.visiblePassword,
                     decoration: const InputDecoration(
-                      hintText: "password",
+                      hintText: "set password",
                       border: OutlineInputBorder(),
                     ),
                   ),
