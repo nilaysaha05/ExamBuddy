@@ -121,7 +121,7 @@ class _SignInPageState extends State<SignInPage> {
                   height: 50,
                   width: double.infinity,
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: blue),
+                    style: ElevatedButton.styleFrom(backgroundColor: blue, elevation: 0.0),
                     onPressed: logInUser,
                     child: _isLoading == true
                         ? const Center(

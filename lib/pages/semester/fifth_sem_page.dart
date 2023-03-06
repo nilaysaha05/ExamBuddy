@@ -63,16 +63,16 @@ class FifthSemPage extends StatelessWidget {
             height: 20.0,
           ),
           SubjectPage(
-            subjectName: "Steel Making",
+            subjectName: "Iron Making",
             profName: "Prof. R. Dey",
             color: indigo,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Steel_Notes',
-                    'Steel_Pyq',
-                    'Steel Making',
+                    'Iron_Notes',
+                    'Iron_Pyq',
+                    'Iron Making',
                     'Previous year Questions',
                     'Class Notes',
                   ),
@@ -81,16 +81,16 @@ class FifthSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Foundry Metallurgy",
-            profName: "Prof. S. Hembram",
+            subjectName: "Physical Metallurgy",
+            profName: "Prof. A. Kundu",
             color: black,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Foundry_Notes',
-                    'Foundry_Pyq',
-                    'Foundry Metallurgy',
+                    'Physical_Notes',
+                    'Physical_Pyq',
+                    'Physical Metallurgy',
                     'Previous year Questions',
                     'Class Notes',
                   ),
@@ -99,16 +99,16 @@ class FifthSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Extraction of Nonferrous Metals",
+            subjectName: "Electrochemistry Corrosion",
             profName: "Prof. S. paul",
             color: red,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Nonferrous_Notes',
-                    'Nonferrous_Pyq',
-                    'Nonferrous Metals',
+                    'Corrosion_Notes',
+                    'Corrosion_Pyq',
+                    'Electrochemistry Corrosion',
                     'Previous year Questions',
                     'Class Notes',
                   ),),
@@ -116,16 +116,33 @@ class FifthSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Solid-state Phase Transformation Process",
-            profName: "Prof. A. Kundu",
+            subjectName: "Chemical Kinetics & Mass Transfer",
+            profName: "Guest Faculty",
             color: blue,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Solid-state_Notes',
-                    'Solid-state_Pyq',
-                    'Solid-state Phase',
+                    'kinetics_Notes',
+                    'kinetics_Pyq',
+                    'Kinetics & Mass Transfer',
+                    'Previous year Questions',
+                    'Class Notes',
+                  ),),
+              );
+            },
+          ),
+          SubjectPage(
+            subjectName: "Plastic Deformation of Metals",
+            profName: "Prof. P. C. Chakraborti",
+            color: blue,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const NoteAndPyqPage(
+                    'plastic_Notes',
+                    'plastic_Pyq',
+                    'Plastic Deformation',
                     'Previous year Questions',
                     'Class Notes',
                   ),),
@@ -140,8 +157,8 @@ class FifthSemPage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Oe_Notes',
-                    'Oe_Pyq',
+                    'Oe1_Notes',
+                    'Oe1_Pyq',
                     'Open Elective',
                     'Previous year Questions',
                     'Class Notes',
@@ -167,16 +184,16 @@ class FifthSemPage extends StatelessWidget {
             height: 20.0,
           ),
           SubjectPage(
-            subjectName: "Foundry Metallurgy",
-            profName: "Prof. R. Dey & Prof. S. Hembram",
+            subjectName: "Physical Metallurgy",
+            profName: "Prof. A. Kundu & Prof. P. C. Chakraborti",
             color: red,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) =>const NoteAndPyqPage(
-                    'Foundry_Lab_A1',
-                    'Foundry_Lab_A2',
-                    'Foundry Metallurgy Lab',
+                    'physical2_Lab_A2',
+                    'physical2_Lab_A1',
+                    'Physical Metallurgy Lab',
                     'Group A1',
                     'Group A2',
                   ),),
@@ -184,8 +201,8 @@ class FifthSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Heat Treatment Practice & MicroStructure Analysis",
-            profName: "Prof. A. Kundu & Prof. P. C. Chakraborti",
+            subjectName: "Electrochemistry & Corrosion Lab",
+            profName: "Prof. S. Paul & Prof. S. Banerjee",
             color: indigo,
             onTap: () {
               Navigator.of(context).push(
@@ -194,23 +211,6 @@ class FifthSemPage extends StatelessWidget {
                     'Heat_Lab_A1',
                     'Heat_Lab_A2',
                     'Heat Treatment Lab',
-                    'Group A1',
-                    'Group A2',
-                  ),),
-              );
-            },
-          ),
-          SubjectPage(
-            subjectName: "Computer Application in Metallurgy",
-            profName: "Prof. S. Paul & Prof. R. Dey",
-            color: black,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const NoteAndPyqPage(
-                    'Comp_Lab_A1',
-                    'Comp_Lab_A2',
-                    'Computer Lab',
                     'Group A1',
                     'Group A2',
                   ),),

@@ -140,8 +140,8 @@ class SixthSemPage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                     builder: (context) => const NoteAndPyqPage(
-                          'Oe_Notes',
-                          'Oe_Pyq',
+                          'Oe2_Notes',
+                          'Oe2_Pyq',
                           'Open Elective',
                           'Previous year Questions',
                           'Class Notes',
@@ -174,8 +174,8 @@ class SixthSemPage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                     builder: (context) =>const NoteAndPyqPage(
-                      'Foundry_Lab_A1',
                       'Foundry_Lab_A2',
+                      'Foundry_Lab_A1',
                       'Foundry Metallurgy Lab',
                       'Group A1',
                       'Group A2',
@@ -191,8 +191,8 @@ class SixthSemPage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                     builder: (context) => const NoteAndPyqPage(
-                      'Heat_Lab_A1',
                       'Heat_Lab_A2',
+                      'Heat_Lab_A1',
                       'Heat Treatment Lab',
                       'Group A1',
                       'Group A2',
@@ -208,8 +208,8 @@ class SixthSemPage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Comp_Lab_A1',
                     'Comp_Lab_A2',
+                    'Comp_Lab_A1',
                     'Computer Lab',
                     'Group A1',
                     'Group A2',

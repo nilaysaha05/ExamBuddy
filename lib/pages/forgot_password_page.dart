@@ -90,7 +90,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             SizedBox(
               height: 50,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: blue),
+                style: ElevatedButton.styleFrom(backgroundColor: blue, elevation: 0.0),
                 onPressed: resetPassword,
                 child: const Center(
                   child: Text(

@@ -63,16 +63,16 @@ class FourthSemPage extends StatelessWidget {
             height: 20.0,
           ),
           SubjectPage(
-            subjectName: "Steel Making",
-            profName: "Prof. R. Dey",
+            subjectName: "Fuel & Combustion",
+            profName: "Chemical Engg. Dept.",
             color: indigo,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Steel_Notes',
-                    'Steel_Pyq',
-                    'Steel Making',
+                    'Fuel_Notes',
+                    'Fuel_Pyq',
+                    'Fuel & Combustion',
                     'Previous year Questions',
                     'Class Notes',
                   ),
@@ -81,16 +81,16 @@ class FourthSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Foundry Metallurgy",
-            profName: "Prof. S. Hembram",
+            subjectName: "Machine Design & Drawing",
+            profName: "Mech Engg. Dept",
             color: black,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Foundry_Notes',
-                    'Foundry_Pyq',
-                    'Foundry Metallurgy',
+                    'Machine_Notes',
+                    'Machine_Pyq',
+                    'Machine Design',
                     'Previous year Questions',
                     'Class Notes',
                   ),
@@ -99,16 +99,16 @@ class FourthSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Extraction of Nonferrous Metals",
-            profName: "Prof. S. paul",
+            subjectName: "Material Science",
+            profName: "Prof. P. C. Chakraborti",
             color: red,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Nonferrous_Notes',
-                    'Nonferrous_Pyq',
-                    'Nonferrous Metals',
+                    'Material_Sc_Notes',
+                    'Material_Sc_Pyq',
+                    'Material Science',
                     'Previous year Questions',
                     'Class Notes',
                   ),),
@@ -116,16 +116,16 @@ class FourthSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Solid-state Phase Transformation Process",
-            profName: "Prof. A. Kundu",
+            subjectName: "Thermodynamics of Materials",
+            profName: "Guest Faculty",
             color: blue,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Solid-state_Notes',
-                    'Solid-state_Pyq',
-                    'Solid-state Phase',
+                    'Thermo_Notes',
+                    'Thermo_Pyq',
+                    'Thermodynamics',
                     'Previous year Questions',
                     'Class Notes',
                   ),),
@@ -133,16 +133,16 @@ class FourthSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Open Elective",
-            profName: "",
+            subjectName: "Testing of Materials",
+            profName: "Prof. M. B. Sk",
             color: black,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Oe_Notes',
-                    'Oe_Pyq',
-                    'Open Elective',
+                    'Testing_Notes',
+                    'Testing_Pyq',
+                    'Testing of Materials',
                     'Previous year Questions',
                     'Class Notes',
                   ),),
@@ -167,16 +167,16 @@ class FourthSemPage extends StatelessWidget {
             height: 20.0,
           ),
           SubjectPage(
-            subjectName: "Foundry Metallurgy",
-            profName: "Prof. R. Dey & Prof. S. Hembram",
+            subjectName: "Basic Physical Metallurgy Lab",
+            profName: "Prof. M. B. Sk & Prof. S. Hembram",
             color: red,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) =>const NoteAndPyqPage(
-                    'Foundry_Lab_A1',
-                    'Foundry_Lab_A2',
-                    'Foundry Metallurgy Lab',
+                    'physical_met_Lab_A2',
+                    'physical_metLab_A1',
+                    'Physical Metallurgy Lab',
                     'Group A1',
                     'Group A2',
                   ),),
@@ -184,33 +184,16 @@ class FourthSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Heat Treatment Practice & MicroStructure Analysis",
-            profName: "Prof. A. Kundu & Prof. P. C. Chakraborti",
+            subjectName: "Mechanical Testing & Inspection of Materials",
+            profName: "Prof. P. C. Chakraborti & Prof. M. B. Sk",
             color: indigo,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Heat_Lab_A1',
-                    'Heat_Lab_A2',
-                    'Heat Treatment Lab',
-                    'Group A1',
-                    'Group A2',
-                  ),),
-              );
-            },
-          ),
-          SubjectPage(
-            subjectName: "Computer Application in Metallurgy",
-            profName: "Prof. S. Paul & Prof. R. Dey",
-            color: black,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const NoteAndPyqPage(
-                    'Comp_Lab_A1',
-                    'Comp_Lab_A2',
-                    'Computer Lab',
+                    'Testing_Lab_A2',
+                    'Testing_Lab_A1',
+                    'Mechanical Testing Lab',
                     'Group A1',
                     'Group A2',
                   ),),

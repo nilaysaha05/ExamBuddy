@@ -1,17 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mme_notes_app/utils/colours.dart';
-import 'package:mme_notes_app/pages/semester/eighth_sem_page.dart';
-import 'package:mme_notes_app/pages/semester/fifth_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/first_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/second_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/third_sem_page.dart';
+import 'package:mme_notes_app/utils/colours.dart';
+import 'package:mme_notes_app/pages/semester/fifth_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/fourth_sem_page.dart';
 import 'package:mme_notes_app/pages/notification_page.dart';
 import 'package:mme_notes_app/pages/profile_page.dart';
-import 'package:mme_notes_app/pages/semester/second_sem_page.dart';
-import 'package:mme_notes_app/pages/semester/seventh_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/sixth_sem_page.dart';
-import 'package:mme_notes_app/pages/semester/third_sem_page.dart';
 import 'package:mme_notes_app/widgets/semester_page_tile.dart';
 
 class HomePage extends StatefulWidget {
@@ -129,7 +127,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SemesterPage(
             semester: "First Semester",
-            subject: "5 sub 1 lab",
+            subject: "6 sub 3 lab",
             color: indigo,
             onTap: () {
               Navigator.of(context).push(
@@ -141,7 +139,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SemesterPage(
             semester: "Second Semester",
-            subject: "5 sub 1 lab",
+            subject: "4 sub 3 lab",
             color: black,
             onTap: () {
               Navigator.of(context).push(
@@ -165,7 +163,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SemesterPage(
             semester: "Fourth Semester",
-            subject: "5 sub 1 lab",
+            subject: "5 sub 2 lab",
             color: blue,
             onTap: () {
               Navigator.of(context).push(
@@ -177,7 +175,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SemesterPage(
             semester: "Fifth Semester",
-            subject: "5 sub 1 lab",
+            subject: "6 sub 2 lab",
             color: black,
             onTap: () {
               Navigator.of(context).push(
@@ -205,11 +203,11 @@ class _HomePageState extends State<HomePage> {
             subject: "5 sub 1 lab",
             color: indigo,
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const SeventhSemPage(),
-                ),
-              );
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(
+              //     builder: (context) => const SeventhSemPage(),
+              //   ),
+              // );
             },
           ),
           SemesterPage(
@@ -217,11 +215,11 @@ class _HomePageState extends State<HomePage> {
             subject: "5 sub 1 lab",
             color: black,
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const EighthSemPage(),
-                ),
-              );
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(
+              //     builder: (context) => const EighthSemPage(),
+              //   ),
+              // );
             },
           ),
         ],
