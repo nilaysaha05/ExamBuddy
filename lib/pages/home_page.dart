@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.symmetric(horizontal: 30.0),
             child: Center(
               child: Text(
-                "This app is only for back benchers toppers are requested to uninstall the app.... ",
+                "This app is made for JU MME UG students to get access to all the class notes..",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.black54,
@@ -124,6 +124,20 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(
             height: 30.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 40.0),
+            child: Text(
+              'First Year',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                color: Colors.black54,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
           ),
           SemesterPage(
             semester: "First Semester",
@@ -149,6 +163,23 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 40.0),
+            child: Text(
+              'Second Year',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                color: Colors.black54,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
           SemesterPage(
             semester: "Third Semester",
             subject: "5 sub 1 lab",
@@ -172,6 +203,23 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             },
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 40.0),
+            child: Text(
+              'Third Year',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                color: Colors.black54,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
           ),
           SemesterPage(
             semester: "Fifth Semester",
@@ -198,29 +246,34 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 40.0),
+            child: Text(
+              'Fourth Year',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                color: Colors.black54,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
           SemesterPage(
             semester: "Seventh Semester",
-            subject: "5 sub 1 lab",
+            subject: "",
             color: indigo,
-            onTap: () {
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     builder: (context) => const SeventhSemPage(),
-              //   ),
-              // );
-            },
+            onTap: (){null;},
           ),
           SemesterPage(
             semester: "Eighth Semester",
-            subject: "5 sub 1 lab",
+            subject: "",
             color: black,
-            onTap: () {
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     builder: (context) => const EighthSemPage(),
-              //   ),
-              // );
-            },
+            onTap: (){null;},
           ),
         ],
       ),

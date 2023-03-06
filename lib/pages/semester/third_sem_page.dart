@@ -35,7 +35,6 @@ class ThirdSemPage extends StatelessWidget {
             ),
           ),
         ),
-
       ),
       body: ListView(
         children: [
@@ -63,16 +62,16 @@ class ThirdSemPage extends StatelessWidget {
             height: 20.0,
           ),
           SubjectPage(
-            subjectName: "Steel Making",
-            profName: "Prof. R. Dey",
+            subjectName: "Mineral Beneficiation",
+            profName: "Prof. S. Hembram",
             color: indigo,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Steel_Notes',
-                    'Steel_Pyq',
-                    'Steel Making',
+                    'minben_Notes',
+                    'minben_Pyq',
+                    'Mineral Beneficiation',
                     'Previous year Questions',
                     'Class Notes',
                   ),
@@ -81,16 +80,16 @@ class ThirdSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Foundry Metallurgy",
-            profName: "Prof. S. Hembram",
+            subjectName: "Fluid Flow & Heat Transfer",
+            profName: "Chem. Engg. Dept",
             color: black,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Foundry_Notes',
-                    'Foundry_Pyq',
-                    'Foundry Metallurgy',
+                    'fluid_Notes',
+                    'fluid_Pyq',
+                    'Fluid & Heat Transfer',
                     'Previous year Questions',
                     'Class Notes',
                   ),
@@ -99,53 +98,74 @@ class ThirdSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Extraction of Nonferrous Metals",
-            profName: "Prof. S. paul",
+            subjectName: "Mathematics - 3",
+            profName: "",
             color: red,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Nonferrous_Notes',
-                    'Nonferrous_Pyq',
-                    'Nonferrous Metals',
+                    'math3_Notes',
+                    'math3_Pyq',
+                    'Mathematics - 3',
                     'Previous year Questions',
                     'Class Notes',
-                  ),),
+                  ),
+                ),
               );
             },
           ),
           SubjectPage(
-            subjectName: "Solid-state Phase Transformation Process",
-            profName: "Prof. A. Kundu",
+            subjectName: "Chemistry - 2",
+            profName: "",
             color: blue,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Solid-state_Notes',
-                    'Solid-state_Pyq',
-                    'Solid-state Phase',
+                    'chem2_Notes',
+                    'chem2_Pyq',
+                    'Chemistry - 2',
                     'Previous year Questions',
                     'Class Notes',
-                  ),),
+                  ),
+                ),
               );
             },
           ),
           SubjectPage(
-            subjectName: "Open Elective",
+            subjectName: "Geology",
             profName: "",
             color: black,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Oe_Notes',
-                    'Oe_Pyq',
-                    'Open Elective',
+                    'geo_Notes',
+                    'geo_Pyq',
+                    'Geology',
                     'Previous year Questions',
                     'Class Notes',
-                  ),),
+                  ),
+                ),
+              );
+            },
+          ),
+          SubjectPage(
+            subjectName: "Strength of Material",
+            profName: "",
+            color: red,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const NoteAndPyqPage(
+                    'som_Notes',
+                    'som_Pyq',
+                    'Strength of Material',
+                    'Previous year Questions',
+                    'Class Notes',
+                  ),
+                ),
               );
             },
           ),
@@ -167,53 +187,20 @@ class ThirdSemPage extends StatelessWidget {
             height: 20.0,
           ),
           SubjectPage(
-            subjectName: "Foundry Metallurgy",
-            profName: "Prof. R. Dey & Prof. S. Hembram",
-            color: red,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) =>const NoteAndPyqPage(
-                    'Foundry_Lab_A1',
-                    'Foundry_Lab_A2',
-                    'Foundry Metallurgy Lab',
-                    'Group A1',
-                    'Group A2',
-                  ),),
-              );
-            },
-          ),
-          SubjectPage(
-            subjectName: "Heat Treatment Practice & MicroStructure Analysis",
-            profName: "Prof. A. Kundu & Prof. P. C. Chakraborti",
+            subjectName: "Mineral Beneficiation Lab",
+            profName: "Prof. A. K. Pramanik & Prof. R. Dey",
             color: indigo,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Heat_Lab_A1',
-                    'Heat_Lab_A2',
-                    'Heat Treatment Lab',
+                    'minben_Lab_A2',
+                    'minben_Lab_A1',
+                    'Mineral Beneficiation',
                     'Group A1',
                     'Group A2',
-                  ),),
-              );
-            },
-          ),
-          SubjectPage(
-            subjectName: "Computer Application in Metallurgy",
-            profName: "Prof. S. Paul & Prof. R. Dey",
-            color: black,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const NoteAndPyqPage(
-                    'Comp_Lab_A1',
-                    'Comp_Lab_A2',
-                    'Computer Lab',
-                    'Group A1',
-                    'Group A2',
-                  ),),
+                  ),
+                ),
               );
             },
           ),
@@ -222,6 +209,3 @@ class ThirdSemPage extends StatelessWidget {
     );
   }
 }
-
-
-
