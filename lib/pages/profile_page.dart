@@ -18,6 +18,7 @@ class _ProfilePageState extends State<ProfilePage> {
   String email = '';
   String photoUrl = '';
   bool admin = false;
+  String graduation ='';
   @override
   void initState() {
     super.initState();
@@ -35,6 +36,8 @@ class _ProfilePageState extends State<ProfilePage> {
       email = (snap.data() as Map<String, dynamic>)['email'];
       photoUrl = (snap.data() as Map<String, dynamic>)['photoUrl'];
       admin = (snap.data() as Map<String, dynamic>)['admin'];
+      graduation = (snap.data() as Map<String, dynamic>)['graduationYear'];
+
     });
   }
 
@@ -140,6 +143,32 @@ class _ProfilePageState extends State<ProfilePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
+                        'Year of Graduation : ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      Text(
+                        graduation,
+                        style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  const Divider(),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
                         'Email : ',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -154,8 +183,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             color: Colors.black54),
                       ),
                     ],
-                  ),
-                  const SizedBox(
+                  ),const SizedBox(
                     height: 10.0,
                   ),
                   const Divider(),

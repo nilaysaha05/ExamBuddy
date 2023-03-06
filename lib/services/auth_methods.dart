@@ -12,6 +12,7 @@ class AuthMethods {
     required String password,
     required String username,
     required String lastname,
+    required String graduationYear,
     required Uint8List file,
   }) async {
     String res = 'Some error occurred';
@@ -19,7 +20,7 @@ class AuthMethods {
       if (email.isNotEmpty ||
           password.isNotEmpty ||
           username.isNotEmpty ||
-          lastname.isNotEmpty || file.isNotEmpty) {
+          lastname.isNotEmpty || file.isNotEmpty || graduationYear.isNotEmpty) {
         UserCredential cred = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
         //print(cred.user!.uid);
@@ -34,6 +35,7 @@ class AuthMethods {
           username: username,
           lastname: lastname,
           photoUrl: photoUrl,
+          graduationYear : graduationYear,
         );
         await _firestore.collection('users').doc(cred.user!.uid).set(user.toJson(),);
         res = 'Success';

@@ -49,6 +49,7 @@ class _SignUpPageState extends State<SignUpPage> {
       password: _passwordController.text,
       username: _usernameController.text,
       lastname: _lastnameController.text,
+      graduationYear: _graduationYearController.text,
       file: _image!,
     );
 
@@ -145,7 +146,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                   const SizedBox(height: 15,),
-                  const Text("without photo you won't be able to create account.." ),
+                  const Text("without photo you won't be able to create account." ),
                   const SizedBox(
                     height: 30.0,
                   ),
