@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.nilaysaha" "\0"
-            VALUE "FileDescription", "mme_notes_app" "\0"
+            VALUE "FileDescription", "Exam Buddy" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "mme_notes_app" "\0"
+            VALUE "InternalName", "Exam Buddy" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.nilaysaha. All rights reserved." "\0"
             VALUE "OriginalFilename", "mme_notes_app.exe" "\0"
-            VALUE "ProductName", "mme_notes_app" "\0"
+            VALUE "ProductName", "Exam Buddy" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,5 +1,5 @@
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mme_notes_app/utils/colours.dart';
 import 'package:mme_notes_app/services/auth_methods.dart';
 import 'package:mme_notes_app/pages/home_page.dart';
@@ -23,6 +23,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _graduationYearController = TextEditingController();
   Uint8List? _image;
   bool _isLoading = false;
+
   @override
   void dispose() {
     super.dispose();
@@ -33,14 +34,15 @@ class _SignUpPageState extends State<SignUpPage> {
     _graduationYearController.dispose();
   }
 
-  void selectImage() async {
+   selectImage() async {
     Uint8List im = await pickImage(ImageSource.gallery);
     setState(() {
       _image = im;
     });
   }
 
-  void signUpUser() async {
+  Future signUpUser() async {
+
     setState(() {
       _isLoading = true;
     });
@@ -132,7 +134,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             : const CircleAvatar(
                                 radius: 64.0,
                                 backgroundImage: NetworkImage(
-                                    'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
+                                    'https://firebasestorage.googleapis.com/v0/b/mme-notes-app-ed5bb.appspot.com/o/ProfilePics%2Fno_profile_pic.jpg?alt=media&token=85712298-5981-4941-8a19-71acae3299dc'),
                               ),
                         Positioned(
                           bottom: -10,
@@ -145,10 +147,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 15,),
-                  const Text("without photo you won't be able to create account." ),
                   const SizedBox(
-                    height: 30.0,
+                    height: 35.0,
                   ),
                   TextFormField(
                     controller: _usernameController,
@@ -213,7 +213,11 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(backgroundColor: blue,elevation: 0.0),
-                      onPressed: signUpUser,
+                      onPressed:() async{ if(_usernameController.text.isNotEmpty && _lastnameController.text.isNotEmpty && _image != null && _graduationYearController.text.isNotEmpty && _emailController.text.isNotEmpty && _passwordController.text.isNotEmpty){
+                        await signUpUser();
+                      }else{
+                        showSnackBar('All fields are mandatory including photo.', context);
+                      }},
                       child: _isLoading == true
                           ? const Center(
                               child: CircularProgressIndicator(
