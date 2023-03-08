@@ -20,7 +20,8 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _lastnameController = TextEditingController();
-  final TextEditingController _graduationYearController = TextEditingController();
+  final TextEditingController _graduationYearController =
+      TextEditingController();
   Uint8List? _image;
   bool _isLoading = false;
 
@@ -34,7 +35,7 @@ class _SignUpPageState extends State<SignUpPage> {
     _graduationYearController.dispose();
   }
 
-   selectImage() async {
+  selectImage() async {
     Uint8List im = await pickImage(ImageSource.gallery);
     setState(() {
       _image = im;
@@ -42,7 +43,6 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Future signUpUser() async {
-
     setState(() {
       _isLoading = true;
     });
@@ -89,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar:  AppBar(
+      appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0.0,
         backgroundColor: white,
@@ -133,8 +133,9 @@ class _SignUpPageState extends State<SignUpPage> {
                               )
                             : const CircleAvatar(
                                 radius: 64.0,
-                                backgroundImage: NetworkImage(
-                                    'https://firebasestorage.googleapis.com/v0/b/mme-notes-app-ed5bb.appspot.com/o/ProfilePics%2Fno_profile_pic.jpg?alt=media&token=85712298-5981-4941-8a19-71acae3299dc'),
+                                backgroundImage: AssetImage(
+                                  'assets/no_profile_pic.jpg',
+                                ),
                               ),
                         Positioned(
                           bottom: -10,
@@ -212,12 +213,22 @@ class _SignUpPageState extends State<SignUpPage> {
                     height: 50,
                     width: double.infinity,
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(backgroundColor: blue,elevation: 0.0),
-                      onPressed:() async{ if(_usernameController.text.isNotEmpty && _lastnameController.text.isNotEmpty && _image != null && _graduationYearController.text.isNotEmpty && _emailController.text.isNotEmpty && _passwordController.text.isNotEmpty){
-                        await signUpUser();
-                      }else{
-                        showSnackBar('All fields are mandatory including photo.', context);
-                      }},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: blue, elevation: 0.0),
+                      onPressed: () async {
+                        if (_usernameController.text.isNotEmpty &&
+                            _lastnameController.text.isNotEmpty &&
+                            _image != null &&
+                            _graduationYearController.text.isNotEmpty &&
+                            _emailController.text.isNotEmpty &&
+                            _passwordController.text.isNotEmpty) {
+                          await signUpUser();
+                        } else {
+                          showSnackBar(
+                              'All fields are mandatory including photo.',
+                              context);
+                        }
+                      },
                       child: _isLoading == true
                           ? const Center(
                               child: CircularProgressIndicator(
