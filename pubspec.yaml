@@ -37,7 +37,7 @@ dependencies:
   firebase_storage: ^11.0.10
   firebase_database: ^10.0.10
   file_picker: ^5.2.5
-  syncfusion_flutter_pdfviewer: ^20.4.52
+  syncfusion_flutter_pdfviewer: ^20.4.53
   share_plus: ^6.3.1
   http: ^0.13.5
   path_provider: ^2.0.13
