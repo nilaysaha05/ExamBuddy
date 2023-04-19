@@ -1,6 +1,25 @@
-# mme_notes_app
+# Exam Buddy App
 
-A new Flutter  for JU MME UG students..
+An app made using Flutter and Firebase for JU MME students.
+
+## Description
+An app made using Flutter and Firebase for JU MME students. Here students can find all types of class notes, reports and previous year questions.
+
+<p align="center">
+<img src="https://github.com/nilaysaha05/ExamBuddy/blob/master/screenShots/1.jpg?raw=true" height="300">
+<img src="https://github.com/nilaysaha05/ExamBuddy/blob/master/screenShots/6.jpg?raw=true" height="300">
+<img src="https://github.com/nilaysaha05/ExamBuddy/blob/master/screenShots/7.jpg?raw=true" height="300">
+<img src="https://github.com/nilaysaha05/ExamBuddy/blob/master/screenShots/2.jpg?raw=true" height="300">
+<img src="https://github.com/nilaysaha05/ExamBuddy/blob/master/screenShots/3.jpg?raw=true" height="300">
+<img src="https://github.com/nilaysaha05/ExamBuddy/blob/master/screenShots/4.jpg?raw=true" height="300">
+<img src="https://github.com/nilaysaha05/ExamBuddy/blob/master/screenShots/5.jpg?raw=true" height="300">
+<img src="https://github.com/nilaysaha05/ExamBuddy/blob/master/screenShots/8.jpg?raw=true" height="300">
+<img src="https://github.com/nilaysaha05/ExamBuddy/blob/master/screenShots/9.jpg?raw=true" height="300">
+</p>
+
+## Tech Stack
+- Flutter
+- Firebase
 
 ## Getting Started
 
