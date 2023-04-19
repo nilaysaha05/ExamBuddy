@@ -73,7 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Column(
               children: [
                 const Center(
@@ -97,7 +97,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   height: 10.0,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const Text(
                       'Name : ',
@@ -138,7 +138,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   height: 10.0,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const Text(
                       'Year of Graduation : ',
@@ -164,7 +164,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   height: 10.0,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const Text(
                       'Email : ',
