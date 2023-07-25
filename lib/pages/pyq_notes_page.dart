@@ -115,8 +115,10 @@ bool _admin = false;
           return const Center(child: CircularProgressIndicator());
         },
       ),
-      floatingActionButton: _admin == false ? null : FloatingActionButton(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: _admin == false ? null : FloatingActionButton.extended(
         backgroundColor: blue,
+        label: Text('Add Notes'),
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -124,7 +126,7 @@ bool _admin = false;
             ),
           );
         },
-        child: const Icon(Icons.add_rounded),
+        icon: const Icon(Icons.add_rounded),
       ),
     );
   }

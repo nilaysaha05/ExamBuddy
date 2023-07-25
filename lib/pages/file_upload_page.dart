@@ -108,16 +108,28 @@ class _UploadPageState extends State<UploadPage> {
                 controller: _noteEditingController,
                 maxLines: 1,
                 decoration: const InputDecoration(
-                    hintText: "Note", border: OutlineInputBorder()),
+                  hintText: "Title",
+                  labelText: "Title",
+                  border: OutlineInputBorder(borderSide: BorderSide(color: blue)),
+                ),
               ),
               const SizedBox(
                 height: 20.0,
               ),
-              TextFormField(
-                controller: _dateEditingController,
-                maxLines: 1,
-                decoration: const InputDecoration(
-                    hintText: "dd-mm-yyyy", border: OutlineInputBorder()),
+              Theme(
+                data: new ThemeData(
+                  primaryColor: blue,
+                  primaryColorDark: Colors.blueAccent,
+                ),
+                child: TextFormField(
+                  controller: _dateEditingController,
+                  maxLines: 1,
+                  decoration: const InputDecoration(
+                    hintText: "dd-mm-yyyy",
+                    labelText: "Date",
+                    border: OutlineInputBorder(),
+                  ),
+                ),
               ),
               const SizedBox(
                 height: 20.0,
@@ -191,7 +203,7 @@ class _UploadPageState extends State<UploadPage> {
                             child: CircularProgressIndicator(
                             color: white,
                           ))
-                        : const Text("Save")),
+                        : const Text("Upload file")),
               ),
             ],
           ),

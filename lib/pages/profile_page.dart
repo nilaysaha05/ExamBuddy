@@ -198,6 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     onPressed: () async {
                       await AuthMethods().signOut();
                       if (context.mounted) {
+                        Navigator.of(context).pop();
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => const SignInPage()));
                       }

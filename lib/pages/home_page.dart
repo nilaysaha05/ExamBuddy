@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/pages/semester/first_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/second_sem_page.dart';
+import 'package:mme_notes_app/pages/semester/seventh_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/third_sem_page.dart';
 import 'package:mme_notes_app/utils/colours.dart';
 import 'package:mme_notes_app/pages/semester/fifth_sem_page.dart';
@@ -21,6 +22,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String username='';
+  String profilePicUrl = '';
   @override
   void initState() {
     super.initState();
@@ -31,6 +33,7 @@ class _HomePageState extends State<HomePage> {
    DocumentSnapshot snap = await FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).get();
    setState(() {
      username = (snap.data() as Map<String,dynamic>)['username'];
+     profilePicUrl = (snap.data() as Map<String,dynamic>)['photoUrl'];
    });
   }
   @override
@@ -236,7 +239,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SemesterPage(
             semester: "Sixth Semester",
-            subject: "5 sub 3 lab",
+            subject: "5 sub 3 lab 1 H",
             color: red,
             onTap: () {
               Navigator.of(context).push(
@@ -265,9 +268,15 @@ class _HomePageState extends State<HomePage> {
           ),
           SemesterPage(
             semester: "Seventh Semester",
-            subject: "",
+            subject: "3 sub 1 lab 1 S 2 H",
             color: indigo,
-            onTap: (){null;},
+            onTap: (){
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SeventhSemPage(),
+                ),
+              );
+            },
           ),
           SemesterPage(
             semester: "Eighth Semester",

@@ -35,7 +35,6 @@ class SeventhSemPage extends StatelessWidget {
             ),
           ),
         ),
-
       ),
       body: ListView(
         children: [
@@ -63,16 +62,16 @@ class SeventhSemPage extends StatelessWidget {
             height: 20.0,
           ),
           SubjectPage(
-            subjectName: "Steel Making",
-            profName: "Prof. R. Dey",
+            subjectName: "Alloy Steel",
+            profName: "Prof. R. Dey & Prof. P. C. Chakraborti ",
             color: indigo,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Steel_Notes',
-                    'Steel_Pyq',
-                    'Steel Making',
+                    'alloy_Notes',
+                    'alloy_Pyq',
+                    'Alloy Steel',
                     'Previous year Questions',
                     'Class Notes',
                   ),
@@ -81,16 +80,16 @@ class SeventhSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Foundry Metallurgy",
-            profName: "Prof. S. Hembram",
+            subjectName: "Fabrication Processes",
+            profName: "Prof. M. B. Sk",
             color: black,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Foundry_Notes',
-                    'Foundry_Pyq',
-                    'Foundry Metallurgy',
+                    'Fabrication_Notes',
+                    'Fabrication_Pyq',
+                    'Fabrication Processes',
                     'Previous year Questions',
                     'Class Notes',
                   ),
@@ -99,53 +98,20 @@ class SeventhSemPage extends StatelessWidget {
             },
           ),
           SubjectPage(
-            subjectName: "Extraction of Nonferrous Metals",
-            profName: "Prof. S. paul",
+            subjectName: "Heat Treatment Technology",
+            profName: "Prof. S. Banerjee",
             color: red,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Nonferrous_Notes',
-                    'Nonferrous_Pyq',
-                    'Nonferrous Metals',
+                    'Heattreatment_Notes',
+                    'Heattreatment_Pyq',
+                    'Heat Treatment',
                     'Previous year Questions',
                     'Class Notes',
-                  ),),
-              );
-            },
-          ),
-          SubjectPage(
-            subjectName: "Solid-state Phase Transformation Process",
-            profName: "Prof. A. Kundu",
-            color: blue,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const NoteAndPyqPage(
-                    'Solid-state_Notes',
-                    'Solid-state_Pyq',
-                    'Solid-state Phase',
-                    'Previous year Questions',
-                    'Class Notes',
-                  ),),
-              );
-            },
-          ),
-          SubjectPage(
-            subjectName: "Open Elective",
-            profName: "",
-            color: black,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const NoteAndPyqPage(
-                    'Oe_Notes',
-                    'Oe_Pyq',
-                    'Open Elective',
-                    'Previous year Questions',
-                    'Class Notes',
-                  ),),
+                  ),
+                ),
               );
             },
           ),
@@ -167,53 +133,108 @@ class SeventhSemPage extends StatelessWidget {
             height: 20.0,
           ),
           SubjectPage(
-            subjectName: "Foundry Metallurgy",
-            profName: "Prof. R. Dey & Prof. S. Hembram",
-            color: red,
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) =>const NoteAndPyqPage(
-                    'Foundry_Lab_A1',
-                    'Foundry_Lab_A2',
-                    'Foundry Metallurgy Lab',
-                    'Group A1',
-                    'Group A2',
-                  ),),
-              );
-            },
-          ),
-          SubjectPage(
-            subjectName: "Heat Treatment Practice & MicroStructure Analysis",
-            profName: "Prof. A. Kundu & Prof. P. C. Chakraborti",
-            color: indigo,
+            subjectName: "Materials Lab",
+            profName: "Prof. S. Banerjee & Prof. S. Hembram",
+            color: blue,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Heat_Lab_A1',
-                    'Heat_Lab_A2',
-                    'Heat Treatment Lab',
+                    'materials_Lab_A1',
+                    'materials_Lab_A2',
+                    'Materials lab',
                     'Group A1',
                     'Group A2',
-                  ),),
+                  ),
+                ),
               );
             },
           ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 40.0),
+            child: Text(
+              'Seminar',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                color: Colors.black54,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
           SubjectPage(
-            subjectName: "Computer Application in Metallurgy",
-            profName: "Prof. S. Paul & Prof. R. Dey",
+            subjectName: "Seminar",
+            profName: "Prof. R. Dey & Prof. M. B. Sk",
             color: black,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'Comp_Lab_A1',
-                    'Comp_Lab_A2',
-                    'Computer Lab',
+                    'seminar_A1',
+                    'seminar_A2',
+                    'Seminar',
                     'Group A1',
                     'Group A2',
-                  ),),
+                  ),
+                ),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 40.0),
+            child: Text(
+              'Honors Subject',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                color: Colors.black54,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          SubjectPage(
+            subjectName: "Composite Materials",
+            profName: "Prof. A. K. Pramanik",
+            color: red,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const NoteAndPyqPage(
+                    'composite_Notes',
+                    'Composite_Pyq',
+                    'Composite Material',
+                    'Previous year Questions',
+                    'Class Notes',
+                  ),
+                ),
+              );
+            },
+          ),
+          SubjectPage(
+            subjectName: "Materials Engineering",
+            profName: "Prof. S. Banerjee",
+            color: indigo,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const NoteAndPyqPage(
+                    'composite_Notes',
+                    'Composite_Pyq',
+                    'Composite Material',
+                    'Previous year Questions',
+                    'Class Notes',
+                  ),
+                ),
               );
             },
           ),
@@ -222,4 +243,3 @@ class SeventhSemPage extends StatelessWidget {
     );
   }
 }
-
