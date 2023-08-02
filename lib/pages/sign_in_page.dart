@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/pages/forgot_password_page.dart';
+import 'package:mme_notes_app/pages/verify_email_page.dart';
 import 'package:mme_notes_app/utils/colours.dart';
 import 'package:mme_notes_app/services/auth_methods.dart';
 import 'package:mme_notes_app/pages/home_page.dart';
@@ -40,7 +41,7 @@ class _SignInPageState extends State<SignInPage> {
     if (res == 'success') {
       if (context.mounted) {
         Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => const HomePage()),
+            MaterialPageRoute(builder: (context) => const VerifyEmailPage()),
             (route) => false);
       }
 

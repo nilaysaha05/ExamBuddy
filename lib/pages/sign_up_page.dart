@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mme_notes_app/pages/verify_email_page.dart';
 import 'package:mme_notes_app/utils/colours.dart';
 import 'package:mme_notes_app/services/auth_methods.dart';
 import 'package:mme_notes_app/pages/home_page.dart';
@@ -63,7 +64,7 @@ class _SignUpPageState extends State<SignUpPage> {
       // navigate to the home screen
       if (context.mounted) {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) => const VerifyEmailPage()),
         );
       }
     } else {

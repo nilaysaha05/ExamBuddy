@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mme_notes_app/pages/home_page.dart';
+import 'package:mme_notes_app/pages/sign_in_page.dart';
 import 'package:mme_notes_app/utils/colours.dart';
 import 'package:mme_notes_app/utils/utils.dart';
 
@@ -18,7 +19,6 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
   bool canResendEmail = false;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     isEmailVerified = FirebaseAuth.instance.currentUser!.emailVerified;
     print(isEmailVerified.toString());
@@ -66,7 +66,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
   }
 
   @override
-  Widget build(BuildContext context) => isEmailVerified == true
+  Widget build(BuildContext context) => isEmailVerified
       ? const HomePage()
       : Scaffold(
           backgroundColor: white,
@@ -84,8 +84,12 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
                   color: offWhite,
                 ),
                 child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
+                  onPressed: () async {
+                    await FirebaseAuth.instance.signOut();
+                    if (context.mounted) {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const SignInPage()));
+                    }
                   },
                   icon: const Icon(
                     Icons.arrow_back_ios_new_rounded,
@@ -140,8 +144,16 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
                   height: 8.0,
                 ),
                 TextButton(
-                  style: ElevatedButton.styleFrom(minimumSize:const  Size.fromHeight(50)),
-                  onPressed: ()=> FirebaseAuth.instance.signOut(),
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(50)),
+                  onPressed: () async {
+                    await FirebaseAuth.instance.signOut();
+                    if (context.mounted) {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const SignInPage()));
+                    }
+                    ;
+                  },
                   child: const Text(
                     'Cancel',
                     style: TextStyle(color: blue, fontWeight: FontWeight.bold),
