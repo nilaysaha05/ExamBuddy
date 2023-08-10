@@ -19,6 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
   String photoUrl = '';
   bool admin = false;
   String graduation = '';
+  bool isEmailVerified = FirebaseAuth.instance.currentUser!.emailVerified;
   @override
   void initState() {
     super.initState();
@@ -179,6 +180,21 @@ class _ProfilePageState extends State<ProfilePage> {
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.black54),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      child: isEmailVerified
+                          ? const Center(
+                          child: Text(
+                            "(verified)",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.greenAccent,
+                                fontWeight: FontWeight.bold),
+                          ))
+                          : null,
                     ),
                   ],
                 ),

@@ -228,9 +228,9 @@ class SeventhSemPage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const NoteAndPyqPage(
-                    'composite_Notes',
-                    'Composite_Pyq',
-                    'Composite Material',
+                    'material_Notes',
+                    'material_Pyq',
+                    'Materials Engineering',
                     'Previous year Questions',
                     'Class Notes',
                   ),
