@@ -238,6 +238,40 @@ class SeventhSemPage extends StatelessWidget {
               );
             },
           ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          const Padding(
+            padding: EdgeInsets.only(left: 40.0),
+            child: Text(
+              'Project',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                color: Colors.black54,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          SubjectPage(
+            subjectName: "Project Work",
+            profName: "All Teachers",
+            color: blue,
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) =>const NoteAndPyqPage(
+                    'Project_ppt1',
+                    'project_report1',
+                    'Project Work',
+                    'Project PPT',
+                    'Project Reports',
+                  ),),
+              );
+            },
+          ),
         ],
       ),
     );

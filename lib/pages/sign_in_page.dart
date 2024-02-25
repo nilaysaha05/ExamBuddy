@@ -3,7 +3,6 @@ import 'package:mme_notes_app/pages/forgot_password_page.dart';
 import 'package:mme_notes_app/pages/verify_email_page.dart';
 import 'package:mme_notes_app/utils/colours.dart';
 import 'package:mme_notes_app/services/auth_methods.dart';
-import 'package:mme_notes_app/pages/home_page.dart';
 import 'package:mme_notes_app/pages/sign_up_page.dart';
 import 'package:mme_notes_app/utils/utils.dart';
 

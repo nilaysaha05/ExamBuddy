@@ -6,6 +6,7 @@ import 'package:mme_notes_app/pages/verify_email_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp();
   runApp(const MyApp());
 }

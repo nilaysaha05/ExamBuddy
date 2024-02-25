@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mme_notes_app/pages/semester/eighth_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/first_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/second_sem_page.dart';
 import 'package:mme_notes_app/pages/semester/seventh_sem_page.dart';
@@ -268,7 +269,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SemesterPage(
             semester: "Seventh Semester",
-            subject: "3 sub 1 lab 1 S 2 H",
+            subject: "3 sub 1 lab 1 S 2 H 1 P",
             color: indigo,
             onTap: (){
               Navigator.of(context).push(
@@ -280,9 +281,15 @@ class _HomePageState extends State<HomePage> {
           ),
           SemesterPage(
             semester: "Eighth Semester",
-            subject: "",
+            subject: "4 sub 1 lab 2 H 1 P",
             color: black,
-            onTap: (){null;},
+            onTap: (){
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const EighthSemPage(),
+                ),
+              );
+            },
           ),
         ],
       ),
